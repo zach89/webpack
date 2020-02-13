@@ -1,0 +1,21 @@
+{
+  "name": "@bdp/webpack",
+  "version": "1.0.0",
+  "description": "@bdp/webpack wraps webpack to create app",
+  "main": "./bin/bdpw.js",
+  "bin": {
+    "bdpw": "./bin/bdpw.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "zach89",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "commander": "^4.1.1",
+    "webpack": "^4.41.6",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3"
+  }
+}
