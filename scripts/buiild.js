@@ -1,5 +1,4 @@
-const Webpack = require("webpack");
-const config = require("../config/webpack.prod");
+const { config } = require("../config/webpack.common");
 
-const compiler = Webpack(config);
+const compiler = Webpack(config());
 compiler.run();
