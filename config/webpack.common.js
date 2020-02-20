@@ -159,7 +159,7 @@ const plugins = dev => {
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       template: "src/index.html",
-      API_ENV: process.env.API_ENV,
+      // API_ENV: process.env.API_ENV,
       minify: {
         removeComments: true,
         collapseWhitespace: true,
@@ -192,9 +192,9 @@ const plugins = dev => {
           to: ""
         }
       ]),
-    new webpack.DllReferencePlugin({
-      manifest
-    }),
+    // new webpack.DllReferencePlugin({
+    //   manifest
+    // }),
     !dev && new BundleAnalyzerPlugin()
   ].filter(Boolean);
 };
