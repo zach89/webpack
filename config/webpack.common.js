@@ -40,12 +40,13 @@ const cacheGroupsFn = vendors => {
 const baseConfig = (dev, devServer = {}) => {
   let config = {
     mode: dev ? "development" : "production",
+    devtool: "source-map",
     entry: {
       app: "./src/index.js"
     },
     output: {
-      filename: "static/js/[name].[contenthash:8].js",
-      chunkFilename: "static/js/[name].bundle.[contenthash:8].js",
+      filename: "static/js/[name].[hash].js",
+      chunkFilename: "static/js/[name].bundle.[hash].js",
       path: path.resolve(__dirname, "../www")
     },
     stats: dev
@@ -75,10 +76,10 @@ const baseConfig = (dev, devServer = {}) => {
   if (dev) {
     config.devServer = {
       contentBase: path.join(__dirname, "../public"),
-      quiet: true,
+      // quiet: true,
       hot: true,
       ...devServer
-      // progress: true, //显示进度
+      // progress: true //显示进度
     };
   }
   return config;
@@ -159,6 +160,7 @@ const plugins = dev => {
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       template: "src/index.html",
+      // inject: true,
       // API_ENV: process.env.API_ENV,
       minify: {
         removeComments: true,
