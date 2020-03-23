@@ -5,3 +5,4 @@ yarn.lock
 # postcss.config.js
 # .babelrc.js
 # tsconfig.json
+/coverage
