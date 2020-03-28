@@ -1,6 +1,5 @@
 const webpack = require('webpack');
 const path = require('path');
-const proxy = require('./proxy');
 const HtmlWebpackPlugin = require('html-webpack-plugin'); // 打包生成index.html并替换已有文件
 const MiniCssExtractPlugin = require('mini-css-extract-plugin'); // 将css提取为独立文件的插件
 const { CleanWebpackPlugin } = require('clean-webpack-plugin'); // 删除原来打包后的文件夹

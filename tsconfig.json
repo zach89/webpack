@@ -15,8 +15,8 @@
     "noImplicitAny": false
   },
   "include": ["src/**/*"],
-  "exclude": ["node_modules", "public", "www", "src/assets"],
-  "typeAcquisition": {
-    "include": ["jest"]
-  }
+  "exclude": ["node_modules", "public", "dist", "config"]
+  // "typeAcquisition": {
+  //   "include": ["jest"]
+  // }
 }

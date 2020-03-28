@@ -6,7 +6,7 @@ module.exports = {
   clearMocks: false,
   // The directory where Jest should output its coverage files
   coverageDirectory: 'coverage',
-  // setupFilesAfterEnv: ['./config/jest.setup.js'],
+  setupFilesAfterEnv: ['./config/jest.setup.js'],
   // A map from regular expressions to module names that allow to stub out resources with a single module
   moduleNameMapper: {
     '@/(.*)$': '<rootDir>/src/$1.js',

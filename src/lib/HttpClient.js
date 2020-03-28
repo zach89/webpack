@@ -1,8 +1,7 @@
-// eslint-disable-next-line func-names
-interface formData {
-  params?: object;
-}
-const HttpClient = function(method: string, url: string, data: formData = {}) {
+// interface formData {
+//   params?: object;
+// }
+const HttpClient = function(method, url, data = {}) {
   return new Promise((resolve, reject) => {
     const client = new XMLHttpRequest();
     let clientUrl = url;
@@ -21,41 +20,34 @@ const HttpClient = function(method: string, url: string, data: formData = {}) {
       client.setRequestHeader('content-type', 'application/x-www-form-urlencoded');
       clientData = data;
     }
-    client.send(clientData);
-    // client.onreadystatechange
-    // client.onprogress
-    // eslint-disable-next-line func-names
     client.onload = function() {
       if (this.status === 200) {
         const { response } = this;
         resolve(response && JSON.parse(response));
       } else {
-        // client.onerror();
+        client.onerror();
       }
     };
-    // eslint-disable-next-line func-names
     client.onerror = function() {
       const { status, response } = this;
-      // eslint-disable-next-line prefer-promise-reject-errors
       reject({ status, response: response && JSON.parse(response) });
     };
+    client.send(clientData);
+    // client.onreadystatechange
+    // client.onprogress
   });
 };
 
-// eslint-disable-next-line func-names
-HttpClient.get = function(url: string, data: formData) {
+HttpClient.get = function(url, data) {
   return HttpClient('GET', url, data);
 };
-// eslint-disable-next-line func-names
-HttpClient.post = function(url: string, data: formData) {
+HttpClient.post = function(url, data) {
   return HttpClient('POST', url, data);
 };
-// eslint-disable-next-line func-names
-HttpClient.put = function(url: string, data: formData) {
+HttpClient.put = function(url, data) {
   return HttpClient('PUT', url, data);
 };
-// eslint-disable-next-line func-names
-HttpClient.delete = function(url: string, data: formData) {
+HttpClient.delete = function(url, data) {
   return HttpClient('DELETE', url, data);
 };
 
